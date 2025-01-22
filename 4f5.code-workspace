@@ -34,6 +34,7 @@
       "4f5.code-workspace": true,
       "*.swp": true
     },
-    "java.compile.nullAnalysis.mode": "disabled"
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.project.sourcePaths": []
   }
 }

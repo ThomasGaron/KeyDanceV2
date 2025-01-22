@@ -20,19 +20,19 @@ def configCommune = {
 
 def configApp = {
    configure configCommune
-   mainClass = "mon_projet.AppMonProjet"
+   mainClass = "key_dance.AppKeyDance"
    jvmArgs('-Dsun.java2d.opengl=true')
 }
 
 def configClient = {
    configure configCommune
-   mainClass = "mon_projet.ClientMonProjet"
+   mainClass = "key_dance.ClientKeyDance"
    jvmArgs('-Dsun.java2d.opengl=true')
 }
 
 def configServeur = {
    configure configCommune
-   mainClass = "mon_projet.ServeurMonProjet"
+   mainClass = "key_dance.ServeurKeyDance"
 }
 
 def configFr = {
@@ -60,16 +60,16 @@ def configCharlie = {
    configure configFr
 }
 
-task(mon_projet, dependsOn: 'classes', type: JavaExec) {
+task(key_dance, dependsOn: 'classes', type: JavaExec) {
    configure configApp
 }
 
-task(mon_projetFr, dependsOn: 'classes', type: JavaExec) {
+task(key_danceFr, dependsOn: 'classes', type: JavaExec) {
    configure configApp
    configure configFr
 }
 
-task(mon_projetEn, dependsOn: 'classes', type: JavaExec) {
+task(key_danceEn, dependsOn: 'classes', type: JavaExec) {
    configure configApp
    configure configEn
 }
