@@ -35,6 +35,7 @@
       "*.swp": true
     },
     "java.compile.nullAnalysis.mode": "disabled",
-    "java.project.sourcePaths": []
+    "java.project.sourcePaths": [],
+    "java.dependency.packagePresentation": "hierarchical"
   }
 }
