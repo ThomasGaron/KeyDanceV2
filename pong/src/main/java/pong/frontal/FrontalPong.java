@@ -6,6 +6,7 @@ import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.session.SessionRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import pong.frontal.taches.PremierAffichage;
+import pong.frontal.vues.VueRacine;
 
 public class FrontalPong implements FrontendFx {
 
@@ -16,7 +17,7 @@ public class FrontalPong implements FrontendFx {
 
     @Override
     public void registerViews(ViewRegistrarFx registrar) {
-
+        registrar.registerView(VueRacine.class, "/vues/racine.fxml");
     }
 
     @Override
@@ -27,6 +28,7 @@ public class FrontalPong implements FrontendFx {
     @Override
     public void createTasks(FrontendTasks tasks) {
 
+        CreerVues.creerTaches(tasks);
         PremierAffichage.creerTaches(tasks);
     }
 
