@@ -21,6 +21,9 @@ public class FrontalPong implements FrontendFx {
     public void registerViews(ViewRegistrarFx registrar) {
         registrar.registerView(VueRacine.class, "/vues/racine.fxml");
         registrar.registerView(VueFileAttente.class, "/vues/file_attente.fxml");
+
+        registrar.registerStylesheet("/style/dev.css");
+        registrar.registerStylesheet("/style/prod.css");
     }
 
     @Override
