@@ -15,7 +15,7 @@
 </ImageView>
 
 <Button
-    text="Débuter partie"
+    text="%debuterPartie"
     styleClass="gros-bouton"
     id="bouton-debuter-partie">
 </Button>
