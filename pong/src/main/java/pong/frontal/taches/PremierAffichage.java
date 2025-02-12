@@ -4,6 +4,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import pong.frontal.vues.VueFileAttente;
 import pong.frontal.vues.VueRacine;
 
 public class PremierAffichage {
@@ -15,6 +16,20 @@ public class PremierAffichage {
                 .contains(subTasks -> {
                     installerVueRacine(subTasks);
                     afficherFenetre(subTasks);
+
+                    choisirPremierVue(subTasks);
+                });
+    }
+
+    private static void choisirPremierVue(FrontendTasks subTasks) {
+        subTasks.task("choisirPremiereVue")
+                .waitsFor(created(VueRacine.class))
+                .waitsFor(created(VueFileAttente.class))
+                .executes(inputs -> {
+                    VueRacine vueRacine = inputs.get(created(VueRacine.class));
+                    VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
+
+                    vueRacine.afficherSousVue(vueFileAttente);
                 });
     }
 

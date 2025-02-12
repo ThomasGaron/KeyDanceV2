@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    fx:controller="pong.frontal.vues.VueFileAttente">
+
+<ImageView>
+    <image>
+        <Image url="@/images/logo.png" />
+    </image>
+</ImageView>
+
+<Button text="Débuter partie">
+</Button>
+
+</VBox>

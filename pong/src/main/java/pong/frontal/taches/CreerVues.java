@@ -1,9 +1,10 @@
-package pong.frontal;
+package pong.frontal.taches;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.frontend.ViewLoader;
+import pong.frontal.vues.VueFileAttente;
 import pong.frontal.vues.VueRacine;
 
 public class CreerVues {
@@ -14,6 +15,8 @@ public class CreerVues {
                 .waitsFor("ViewLoaders")
                 .contains(subTasks -> {
                     creerVueRacine(subTasks);
+
+                    creerVueFileAttente(subTasks);
                 });
     }
 
@@ -27,6 +30,17 @@ public class CreerVues {
                     VueRacine vueRacine = viewLoader.createView();
                     return vueRacine;
                 });
+    }
+
+    private static void creerVueFileAttente(FrontendTasks subTasks) {
+        subTasks.task(create(VueFileAttente.class))
+                .waitsFor(viewLoader(VueFileAttente.class))
+                .executesAndReturnsValue(inputs -> {
+                    ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+                    VueFileAttente vueFileAttente = viewLoader.createView();
+                    return vueFileAttente;
+                });
+
     }
 
 }
