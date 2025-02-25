@@ -4,6 +4,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import key_dance.frontal.vues.VueLeaderboard;
 import key_dance.frontal.vues.VueRacine;
 
 public class PremierAffichage {
@@ -14,6 +15,7 @@ public class PremierAffichage {
                 .contains(subTasks -> {
                     installerVueRacine(subTasks);
                     afficherFenetre(subTasks);
+                    choisirPremiereVue(subTasks);
                 });
     }
 
@@ -36,5 +38,17 @@ public class PremierAffichage {
                     window.setTitle("KeyDance");
                     window.show();
                 });
+    }
+
+    private static void choisirPremiereVue(FrontendTasks subTasks){
+        subTasks.task("choisirPremiereVue")
+            .waitsFor(created(VueRacine.class))
+            .waitsFor(created(VueLeaderboard.class))
+            .executes(inputs -> {
+                VueRacine vueRacine = inputs.get(created(VueRacine.class));
+                VueLeaderboard vueLeaderboard = inputs.get(created(VueLeaderboard.class));
+                
+                vueRacine.afficherSousVue(vueLeaderboard);
+            });
     }
 }

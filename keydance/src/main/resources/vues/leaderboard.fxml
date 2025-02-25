@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <?import javafx.scene.layout.*?>
+    <?import javafx.scene.control.*?>
+    <?import javafx.scene.image.*?>
+    <?import javafx.scene.text.*?>
+
+    <VBox xmlns:fx="http://javafx.com/fxml"
+        fx:controller="key_dance.frontal.vues.VueLeaderboard"
+        styleClass="conteneur"
+        id="vue-leaderboard"
+        alignment="CENTER"
+        spacing="20">
+
+        <Text text="%leaderboard"
+        styleClass="gros-texte"
+        id="texte-leaderboard">
+        </Text>
+
+        <Button text="%retournerMenu"
+        styleClass="gros-bouton"
+        id="bouton-menu">
+        </Button>
+
+        <ComboBox fx:id="comboBox_region"
+            styleClass="combo-box">
+        </ComboBox>
+       
+    </VBox>

@@ -1,5 +1,6 @@
 package key_dance.frontal;
 
+import ca.ntro.app.Ntro;
 import ca.ntro.app.events.EventRegistrar;
 import ca.ntro.app.frontend.FrontendFx;
 import ca.ntro.app.frontend.ViewRegistrarFx;
@@ -7,6 +8,7 @@ import ca.ntro.app.session.SessionRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import key_dance.frontal.taches.CreerVues;
 import key_dance.frontal.taches.PremierAffichage;
+import key_dance.frontal.vues.VueLeaderboard;
 import key_dance.frontal.vues.VueRacine;
 
 public class FrontalKeyDance implements FrontendFx {
@@ -19,6 +21,16 @@ public class FrontalKeyDance implements FrontendFx {
     @Override
     public void registerViews(ViewRegistrarFx registrar) {
         registrar.registerView(VueRacine.class, "/vues/racine.fxml");
+        registrar.registerView(VueLeaderboard.class, "/vues/leaderboard.fxml");
+
+        registrar.registerStylesheet("/style/dev.css");
+        registrar.registerStylesheet("/style/prod.css");
+
+        registrar.registerDefaultLocale(Ntro.buildLocale("fr"));
+        registrar.registerTranslations(Ntro.buildLocale("fr"), "/traductions/fr.properties");
+        registrar.registerTranslations(Ntro.buildLocale("en"), "/traductions/en.properties");
+
+
     }
 
     @Override

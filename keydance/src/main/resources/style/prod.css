@@ -1,0 +1,71 @@
+.conteneur {
+  -fx-border-width: 0.8em;
+  -fx-alignment: center;
+}
+
+#vue-racine {
+  -fx-background-color: rgb(86, 0, 136);
+}
+
+#vue-leaderboard {
+  -fx-background-color: rgb(86, 0, 136);
+}
+
+.gros-bouton {
+  -fx-padding: 0.5em 1.5em;
+  -fx-background-radius: 0.4em;
+  -fx-text-fill: white;
+  -fx-font-size: 1.2em;
+  -fx-background-color: linear-gradient(
+      from 0% 0% to 100% 100%,
+      #9d85d4 0%,
+      #7c68b2 100%
+    ),
+    linear-gradient(
+      from 0% 50% to 100% 50%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.2, 2, 2);
+}
+
+.gros-bouton:pressed {
+  -fx-scale-x: 0.9;
+  -fx-scale-y: 0.9;
+}
+
+.gros-bouton:hover {
+  -fx-cursor: hand;
+}
+
+.gros-texte {
+  -fx-fill: #a6c8ff;
+  -fx-font-size: 40px;
+  -fx-font-weight: bold;
+  -fx-font-family: "Arial";
+}
+
+.combo-box {
+  -fx-background-color: linear-gradient(
+      from 0% 93% to 0% 100%,
+      #7c6cc2 0%,
+      #5f4b8b 100%
+    ),
+    #5f4b8b;
+  -fx-background-radius: 0.4em;
+  -fx-border-radius: 0.4em;
+  -fx-padding: 0.5em;
+  -fx-font-size: 1.1em;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+
+.combo-box:hover {
+  -fx-background-color: linear-gradient(
+    from 0% 93% to 0% 100%,
+    #6a57a0 0%,
+    #52417e 100%
+  );
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.6), 8, 0.2, 2, 2);
+}
