@@ -69,3 +69,32 @@
   -fx-cursor: hand;
   -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.6), 8, 0.2, 2, 2);
 }
+
+#vue-menu {
+  -fx-border-color: rgb(187, 129, 199);
+}
+
+.petit-espace-horizontal {
+  -fx-min-width: 1em;
+  -fx-max-width: 2em;
+}
+
+.grand-espace-horizontal {
+  -fx-min-width: 2em;
+  -fx-max-width: 10em;
+}
+
+.mini-espace-vertical {
+  -fx-min-height: 1em;
+  -fx-max-height: 2em;
+}
+
+.petit-espace-vertical {
+  -fx-min-height: 3em;
+  -fx-max-height: 10em;
+}
+
+.grand-espace-vertical {
+  -fx-min-height: 3em;
+  -fx-max-height: 20em;
+}

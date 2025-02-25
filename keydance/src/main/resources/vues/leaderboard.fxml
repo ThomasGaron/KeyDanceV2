@@ -17,7 +17,9 @@
         id="texte-leaderboard">
         </Text>
 
-        <Button text="%retournerMenu"
+        <Button
+        fx:id="boutonAllerAuMenu"
+        text="%retournerMenu"
         styleClass="gros-bouton"
         id="bouton-menu">
         </Button>

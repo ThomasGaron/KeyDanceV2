@@ -5,6 +5,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.frontend.ViewLoader;
 import key_dance.frontal.vues.VueLeaderboard;
+import key_dance.frontal.vues.VueMenu;
 import key_dance.frontal.vues.VueRacine;
 
 public class CreerVues {
@@ -16,6 +17,7 @@ public class CreerVues {
                     creerVueRacine(subTasks);
 
                     creerVueLeaderboard(subTasks);
+                    creerVueMenu(subTasks);
                 });
     }
 
@@ -36,6 +38,16 @@ public class CreerVues {
                 ViewLoader<VueLeaderboard> viewLoader = inputs.get(viewLoader(VueLeaderboard.class));
                 VueLeaderboard vueLeaderboard = viewLoader.createView();
                 return vueLeaderboard;
+            });
+    }
+
+    private static void creerVueMenu(FrontendTasks subTasks){
+        subTasks.task(create(VueMenu.class))
+            .waitsFor(viewLoader(VueMenu.class))
+            .executesAndReturnsValue(inputs -> {
+                ViewLoader<VueMenu> viewLoader = inputs.get(viewLoader(VueMenu.class));
+                VueMenu vueMenu = viewLoader.createView();
+                return vueMenu;
             });
     }
 }

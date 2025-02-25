@@ -71,3 +71,7 @@
   -fx-cursor: hand;
   -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.6), 8, 0.2, 2, 2);
 }
+
+#vue-menu {
+  -fx-border-color: rgb(187, 129, 199);
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <?import javafx.scene.layout.*?>
+    <?import javafx.scene.control.*?>
+    <?import javafx.scene.image.*?>
+    <?import javafx.scene.text.*?>
+
+    <VBox xmlns:fx="http://javafx.com/fxml"
+        fx:controller="key_dance.frontal.vues.VueMenu"
+        styleClass="conteneur"
+        id="vue-menu">
+
+        <Pane styleClass="petit-espace-vertical"/>
+
+        <HBox VBox.vgrow="ALWAYS" styleClass="conteneur">
+
+            <Pane styleClass="petit-espace-horizontal"/>
+            <ImageView>
+                <image>
+                    <Image url="@/images/keydance1.jpg"/>
+                </image>
+            </ImageView>
+
+            <Pane styleClass="petit-espace-horizontal"/>
+        </HBox>
+
+        <Pane styleClass="petit-espace-vertical"/>
+
+        <HBox styleClass="conteneur">
+
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+
+            <Button
+                fx:id="boutonAllerAuLeaderboard"
+                text="%leaderboard"
+                styleClass="gros-bouton"
+                id="bouton-leaderboard">
+            </Button>
+
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+
+        </HBox>
+
+        <Pane styleClass="petit-espace-vertical"/>
+
+    </VBox>
