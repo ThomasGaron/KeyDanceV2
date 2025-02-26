@@ -1,0 +1,26 @@
+{
+  "_C": "ModeleLeaderboard",
+  "prochainIdJoueur": 1,
+  "classementDansOrdre": [
+    {
+      "_C": "Classement",
+      "premierJoueur": {
+        "_C": "Joueur",
+        "id": "ZQ6B",
+        "region": "Amérique du Nord",
+        "username": "Patate"
+      },
+      "idClassement": "1"
+    },
+    {
+      "_C": "Classement",
+      "premierJoueur": {
+        "_C": "Joueur",
+        "id": "UWmq",
+        "region": "Asie",
+        "username": "Bread"
+      },
+      "idClassement": "2"
+    }
+  ]
+}

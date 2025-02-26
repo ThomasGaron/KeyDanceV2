@@ -75,3 +75,71 @@
 #vue-menu {
   -fx-border-color: rgb(187, 129, 199);
 }
+
+#vue-leaderboard {
+  -fx-aligment: top-center;
+}
+
+.label-classement {
+  -fx-text-fill: derive(black, 30%);
+}
+
+.defilement {
+  -fx-min-width: 20em;
+  -fx-max-width: 20em;
+}
+
+.bouton-rouge {
+  -fx-background-color: linear-gradient(
+      from 90% 100% to 0% 100%,
+      #b72353 0%,
+      #9f2836 100%
+    ),
+    #a83145, #ea5c63,
+    radial-gradient(center 50% 50%, radius 100%, #ea5c62, #d33a54);
+}
+
+.scroll-bar {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}
+
+.scroll-bar .track {
+  -fx-border-color: transparent;
+  -fx-background-color: derive(black, 75%);
+  -fx-background-radius: 0.6em;
+}
+
+.scroll-bar .thumb {
+  -fx-padding: 0.6em 1.15em 1.15em 1.15em;
+  -fx-background-insets: 0, 0 0 0.4em 0, 0 0 0.45em 0, 0 0 0.5em 0;
+  -fx-background-radius: 0.6em;
+  -fx-background-color: linear-gradient(
+      from 0% 93% to 0% 100%,
+      #7c6cc2 0%,
+      #5f4b8b 100%
+    ),
+    #6a57a0, #9585c6,
+    radial-gradient(center 50% 50%, radius 100%, #9585c6, #7c6cc2);
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 0.3em, 0, 0, 0.08em);
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button,
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+  -fx-shape: " ";
+  -fx-visibility: hidden;
+}
+
+.scroll-pane .viewport {
+  -fx-background-color: transparent;
+  -fx-background: transparent;
+}
+
+.scroll-pane {
+  -fx-background-color: transparent;
+  -fx-background: transparent;
+  -fx-hbar-policy: never;
+  -fx-vbar-policy: always;
+}

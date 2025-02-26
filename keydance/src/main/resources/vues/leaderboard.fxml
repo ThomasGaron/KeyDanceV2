@@ -12,20 +12,47 @@
         alignment="CENTER"
         spacing="20">
 
-        <Text text="%leaderboard"
-        styleClass="gros-texte"
-        id="texte-leaderboard">
-        </Text>
+        <Pane styleClass="petit-espace-vertical"/>
 
-        <Button
-        fx:id="boutonAllerAuMenu"
-        text="%retournerMenu"
-        styleClass="gros-bouton"
-        id="bouton-menu">
-        </Button>
+            <Text text="%leaderboard"
+            styleClass="gros-texte"
+            id="texte-leaderboard">
+            </Text>
 
-        <ComboBox fx:id="comboBox_region"
-            styleClass="combo-box">
-        </ComboBox>
+            <Pane styleClass="petit-espace-vertical"/>
+        <HBox styleClass="conteneur">
+
+            <Button
+            fx:id="boutonAllerAuMenu"
+            text="%retournerMenu"
+            styleClass="gros-bouton"
+            id="bouton-menu">
+            </Button>
+
+            <Button
+            fx:id="boutonSimuler"
+            text="%simuler"
+            styleClass="gros-bouton"
+            id="bouton-simuler">
+            </Button>
+
+            <ComboBox fx:id="comboBox_region"
+                styleClass="combo-box">
+            </ComboBox>
+        </HBox>
+
+        <Pane styleClass="grand-espace-vertical"/>
+
+        <HBox styleClass="conteneur">
+            <Pane styleClass="grand-espace-horizontal"/>
+
+            <ScrollPane fitToWidth="true" styleClass="defilement">
+                <Label fx:id="labelClassement" styleClass="label-classement"/>
+            </ScrollPane>
+
+            <Pane styleClass="grand-espace-horizontal"/>
+        </HBox>
+
+        <Pane styleClass="grand-espace-vertical"/>        
        
     </VBox>

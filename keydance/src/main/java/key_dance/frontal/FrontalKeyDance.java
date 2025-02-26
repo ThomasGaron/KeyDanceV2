@@ -8,6 +8,7 @@ import ca.ntro.app.session.SessionRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import key_dance.frontal.evenements.EvtAfficherLeaderboard;
 import key_dance.frontal.evenements.EvtAfficherMenu;
+import key_dance.frontal.taches.AfficherLeaderboard;
 import key_dance.frontal.taches.CreerVues;
 import key_dance.frontal.taches.Navigation;
 import key_dance.frontal.taches.PremierAffichage;
@@ -36,7 +37,6 @@ public class FrontalKeyDance implements FrontendFx {
         registrar.registerTranslations(Ntro.buildLocale("fr"), "/traductions/fr.properties");
         registrar.registerTranslations(Ntro.buildLocale("en"), "/traductions/en.properties");
 
-
     }
 
     @Override
@@ -50,6 +50,8 @@ public class FrontalKeyDance implements FrontendFx {
         PremierAffichage.creerTaches(tasks);
 
         Navigation.creerTaches(tasks);
+
+        AfficherLeaderboard.creerTaches(tasks);
 
     }
 
