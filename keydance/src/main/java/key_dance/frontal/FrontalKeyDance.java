@@ -9,6 +9,7 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import key_dance.frontal.evenements.EvtAfficherLeaderboard;
 import key_dance.frontal.evenements.EvtAfficherMenu;
 import key_dance.frontal.taches.CreerVues;
+import key_dance.frontal.taches.Navigation;
 import key_dance.frontal.taches.PremierAffichage;
 import key_dance.frontal.vues.VueLeaderboard;
 import key_dance.frontal.vues.VueMenu;
@@ -40,13 +41,15 @@ public class FrontalKeyDance implements FrontendFx {
 
     @Override
     public void registerSessionClass(SessionRegistrar registrar) {
-
+        registrar.registerSessionClass(SessionKeydance.class);
     }
 
     @Override
     public void createTasks(FrontendTasks tasks) {
         CreerVues.creerTaches(tasks);
         PremierAffichage.creerTaches(tasks);
+
+        Navigation.creerTaches(tasks);
 
     }
 

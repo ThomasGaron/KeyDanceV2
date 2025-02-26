@@ -4,7 +4,9 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import key_dance.frontal.SessionKeydance;
 import key_dance.frontal.vues.VueLeaderboard;
+import key_dance.frontal.vues.VueMenu;
 import key_dance.frontal.vues.VueRacine;
 
 public class PremierAffichage {
@@ -44,11 +46,11 @@ public class PremierAffichage {
         subTasks.task("choisirPremiereVue")
             .waitsFor(created(VueRacine.class))
             .waitsFor(created(VueLeaderboard.class))
+            .waitsFor(created(VueMenu.class))
+            .waitsFor(session(SessionKeydance.class))
             .executes(inputs -> {
-                VueRacine vueRacine = inputs.get(created(VueRacine.class));
-                VueLeaderboard vueLeaderboard = inputs.get(created(VueLeaderboard.class));
-                
-                vueRacine.afficherSousVue(vueLeaderboard);
+                SessionKeydance session = inputs.get(session(SessionKeydance.class));
+                session.envoyerEvtPourAfficherVueCourante();
             });
     }
 }

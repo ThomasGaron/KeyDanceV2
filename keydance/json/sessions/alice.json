@@ -1,0 +1,9 @@
+{
+  "_C": "SessionKeydance",
+  "vueCourante": "VueLeaderboard",
+  "sessionId": "alice",
+  "modelSelections": {
+    "_C": "SelectionsByModel",
+    "selections": {}
+  }
+}
