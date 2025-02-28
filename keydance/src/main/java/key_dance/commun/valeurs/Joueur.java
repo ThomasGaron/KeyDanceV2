@@ -9,6 +9,18 @@ public class Joueur implements ModelValue {
     private String region;
     // private int score;
 
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public void setUsername(String username){
+        this.username = username;
+    }
+    
+    public void setRegion(String region){
+        this.region = region;
+    }
+
     public Joueur() {
 
     }

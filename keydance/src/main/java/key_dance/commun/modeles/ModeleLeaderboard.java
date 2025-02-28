@@ -7,17 +7,18 @@ import ca.ntro.app.models.Model;
 import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
 import key_dance.commun.valeurs.Classement;
+import key_dance.commun.valeurs.Joueur;
 import key_dance.frontal.vues.VueLeaderboard;
 
 public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
 
     private long prochainIdJoueur = 1;
+    private long prochainIdClassement = 1;
+    private List<Classement> classementDansOrdre = new ArrayList<>();
 
     public ModeleLeaderboard() {
 
     }
-
-    private List<Classement> classementDansOrdre = new ArrayList<>();
 
     public void afficherSur(VueLeaderboard vueLeaderboard) {
         vueLeaderboard.afficherClassementEnTexte(this.toString());
@@ -38,5 +39,20 @@ public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
         }
         return builder.toString();
     }
+
+    public void ajouterClassement(Joueur premierJoueur){
+        String idClassement = genererIdClassement();
+
+        Classement classement = new Classement(idClassement, premierJoueur);
+        classementDansOrdre.add(classement);
+    }
+
+    private String genererIdClassement(){
+        String idClassement = String.valueOf(prochainIdClassement);
+        prochainIdClassement++;
+
+        return idClassement;
+    }
+    
 
 }

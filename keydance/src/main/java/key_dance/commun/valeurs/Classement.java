@@ -8,9 +8,6 @@ public class Classement implements ModelValue {
     private String idClassement;
     private Joueur premierJoueur;
 
-    public Classement() {
-
-    }
 
     protected Joueur premierJoueur() {
         return premierJoueur;
@@ -20,4 +17,15 @@ public class Classement implements ModelValue {
     public String toString() {
         return premierJoueur().usernameClassement();
     }
+
+    public Classement() {
+
+    }
+
+    public Classement(String idClassement, Joueur premierJoueur){
+        this.idClassement = idClassement;
+        this.premierJoueur = premierJoueur;
+    }
+
+    
 }

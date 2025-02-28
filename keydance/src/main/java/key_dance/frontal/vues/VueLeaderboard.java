@@ -5,6 +5,7 @@ import ca.ntro.app.frontend.ViewFx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import key_dance.frontal.SessionKeydance;
 import key_dance.frontal.evenements.EvtAfficherMenu;
 
 public class VueLeaderboard extends ViewFx {
@@ -15,6 +16,7 @@ public class VueLeaderboard extends ViewFx {
     private Button boutonSimuler;
     @FXML
     private Label labelClassement;
+    
 
     @Override
     public void initialize() {
@@ -23,6 +25,15 @@ public class VueLeaderboard extends ViewFx {
         Ntro.assertNotNull(labelClassement);
 
         installerEvtAfficherMenu();
+        initialiserBoutonSimuler();
+    }
+
+    private void initialiserBoutonSimuler(){
+        SessionKeydance session = Ntro.session();
+
+        boutonSimuler.setOnAction(evtFx -> {
+            session.envoyerMsgAjouterClassement();
+        });
     }
 
     private void installerEvtAfficherMenu() {
