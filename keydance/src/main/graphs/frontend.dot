@@ -1,0 +1,71 @@
+digraph "frontend" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","compound"="true","overlap"="false"]
+subgraph "cluster_ViewLoaders__container" {
+edge ["dir"="none"]
+graph ["margin"="40","style"="invis"]
+subgraph "cluster_ViewLoaders" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","label"="ViewLoaders","style"="filled","fillcolor"="gray","penwidth"="3.0","fontsize"="18.0"]
+"ViewLoaders_viewLoader[VueLeaderboard]" ["label"="viewLoader[VueLeaderboard]","style"="filled","fillcolor"="white","shape"="box"]
+"ViewLoaders_viewLoader[VueMenu]" ["label"="viewLoader[VueMenu]","style"="filled","fillcolor"="white","shape"="box"]
+"ViewLoaders_viewLoader[VueRacine]" ["label"="viewLoader[VueRacine]","style"="filled","fillcolor"="white","shape"="box"]
+}
+}
+subgraph "cluster_CreerVues__container" {
+edge ["dir"="none"]
+graph ["margin"="40","style"="invis"]
+subgraph "cluster_CreerVues" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","label"="CreerVues","style"="filled","fillcolor"="gray","penwidth"="3.0","fontsize"="18.0"]
+"CreerVues_VueMenu" ["label"="VueMenu","style"="filled","fillcolor"="white","shape"="box"]
+"CreerVues_VueRacine" ["label"="VueRacine","style"="filled","fillcolor"="white","shape"="box"]
+"CreerVues_VueLeaderboard" ["label"="VueLeaderboard","style"="filled","fillcolor"="white","shape"="box"]
+}
+}
+subgraph "cluster_PremierAffichage__container" {
+edge ["dir"="none"]
+graph ["margin"="40","style"="invis"]
+subgraph "cluster_PremierAffichage" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","label"="PremierAffichage","style"="filled","fillcolor"="gray","penwidth"="3.0","fontsize"="18.0"]
+"PremierAffichage_session[SessionKeydance]" ["label"="session[SessionKeydance]","style"="filled","fillcolor"="white","shape"="box"]
+"PremierAffichage_window" ["label"="window","style"="filled","fillcolor"="white","shape"="box"]
+"PremierAffichage_afficherFenetre" ["label"="afficherFenetre","style"="filled","fillcolor"="white","shape"="box"]
+"PremierAffichage_installerVueRacine" ["label"="installerVueRacine","style"="filled","fillcolor"="white","shape"="box"]
+"PremierAffichage_choisirPremiereVue" ["label"="choisirPremiereVue","style"="filled","fillcolor"="white","shape"="box"]
+}
+}
+subgraph "cluster_Navigation__container" {
+edge ["dir"="none"]
+graph ["margin"="40","style"="invis"]
+subgraph "cluster_Navigation" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","label"="Navigation","style"="filled","fillcolor"="gray","penwidth"="3.0","fontsize"="18.0"]
+"Navigation_event[EvtAfficherLeaderboard]" ["label"="event[EvtAfficherLeaderboard]","style"="filled","fillcolor"="white"]
+"Navigation_afficherVueMenu" ["label"="afficherVueMenu","style"="filled","fillcolor"="white","shape"="box"]
+"Navigation_afficherVueLeaderboard" ["label"="afficherVueLeaderboard","style"="filled","fillcolor"="white","shape"="box"]
+"Navigation_event[EvtAfficherMenu]" ["label"="event[EvtAfficherMenu]","style"="filled","fillcolor"="white"]
+}
+}
+subgraph "cluster_AfficherLeaderboard__container" {
+edge ["dir"="none"]
+graph ["margin"="40","style"="invis"]
+subgraph "cluster_AfficherLeaderboard" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","label"="AfficherLeaderboard","style"="filled","fillcolor"="gray","penwidth"="3.0","fontsize"="18.0"]
+"AfficherLeaderboard_modified[ModeleLeaderboard]" ["label"="modified[ModeleLeaderboard]","style"="filled","fillcolor"="white"]
+"AfficherLeaderboard_afficherLeaderboard" ["label"="afficherLeaderboard","style"="filled","fillcolor"="white","shape"="box"]
+}
+}
+"ViewLoaders_viewLoader[VueLeaderboard]" -> "CreerVues_VueMenu" ["label"="","ltail"="cluster_ViewLoaders","lhead"="cluster_CreerVues","penwidth"="3"]
+"CreerVues_VueMenu" -> "PremierAffichage_session[SessionKeydance]" ["label"="","ltail"="cluster_CreerVues","lhead"="cluster_PremierAffichage","penwidth"="3"]
+"PremierAffichage_session[SessionKeydance]" -> "PremierAffichage_choisirPremiereVue" ["label"=""]
+"PremierAffichage_session[SessionKeydance]" -> "Navigation_event[EvtAfficherLeaderboard]" ["label"="","ltail"="cluster_PremierAffichage","lhead"="cluster_Navigation","penwidth"="3"]
+"Navigation_event[EvtAfficherLeaderboard]" -> "Navigation_afficherVueLeaderboard" ["label"="","style"="dashed"]
+"Navigation_afficherVueLeaderboard" -> "AfficherLeaderboard_modified[ModeleLeaderboard]" ["label"="","lhead"="cluster_AfficherLeaderboard"]
+"AfficherLeaderboard_modified[ModeleLeaderboard]" -> "AfficherLeaderboard_afficherLeaderboard" ["label"="","style"="dashed"]
+"Navigation_event[EvtAfficherMenu]" -> "Navigation_afficherVueMenu" ["label"="","style"="dashed"]
+"PremierAffichage_window" -> "PremierAffichage_installerVueRacine" ["label"=""]
+"PremierAffichage_window" -> "PremierAffichage_afficherFenetre" ["label"=""]
+}

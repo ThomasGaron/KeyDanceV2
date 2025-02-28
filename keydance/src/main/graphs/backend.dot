@@ -1,0 +1,17 @@
+digraph "backend" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","compound"="true","overlap"="false"]
+"model[ModeleLeaderboard]" ["label"="model[ModeleLeaderboard]","style"="filled","fillcolor"="white","shape"="box"]
+subgraph "cluster_ModifierLeaderboard__container" {
+edge ["dir"="none"]
+graph ["margin"="40","style"="invis"]
+subgraph "cluster_ModifierLeaderboard" {
+edge ["dir"="forward"]
+graph ["rankdir"="LR","label"="ModifierLeaderboard","style"="filled","fillcolor"="gray","penwidth"="3.0","fontsize"="18.0"]
+"ModifierLeaderboard_message[MsgAjouterClassement]" ["label"="message[MsgAjouterClassement]","style"="filled","fillcolor"="white"]
+"ModifierLeaderboard_ajouterClassement" ["label"="ajouterClassement","style"="filled","fillcolor"="white","shape"="box"]
+}
+}
+"model[ModeleLeaderboard]" -> "ModifierLeaderboard_message[MsgAjouterClassement]" ["label"="","lhead"="cluster_ModifierLeaderboard"]
+"ModifierLeaderboard_message[MsgAjouterClassement]" -> "ModifierLeaderboard_ajouterClassement" ["label"="","style"="dashed"]
+}
