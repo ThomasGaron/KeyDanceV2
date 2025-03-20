@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <?import javafx.scene.layout.*?>
+    <?import javafx.scene.control.*?>
+    <?import javafx.scene.control.*?>
+
+    <VBox xmlns:fx="http://javafx.com/fxml"
+        fx:controller="key_dance.frontal.fragments.FragmentLeaderboard" 
+        styleClass="conteneur,vue-leaderboard">
+        <HBox>
+            <Pane styleClass="grand-espace-horizontal"/>
+            <HBox styleClass="conteneur,leaderboard" fx:id="horizontalOuVertical">
+                <Pane minHeight="20" minWidth="20"/>
+                <Label
+                    fx:id="labelNomJoueur"
+                    styleClass="gros-texte">
+                </Label>
+                <Pane minHeight="20" minWidth="20"/>
+            </HBox>
+            <Pane styleClass="grand-espace-horizontal"/>
+        </HBox>
+        <Pane styleClass="petit-espace-vertical"/>
+    </VBox>

@@ -1,0 +1,21 @@
+package key_dance.frontal.fragments;
+
+import ca.ntro.app.Ntro;
+import ca.ntro.app.frontend.ViewFx;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
+public class FragmentLeaderboard extends ViewFx {
+    @FXML
+    private Label labelNomJoueur;
+
+    public void afficherNomJoueur(String nomJoueur) {
+        labelNomJoueur.setText(nomJoueur);
+    }
+
+    @Override
+    public void initialize() {
+        Ntro.assertNotNull(labelNomJoueur);
+    }
+
+}

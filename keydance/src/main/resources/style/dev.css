@@ -143,3 +143,27 @@
   -fx-hbar-policy: never;
   -fx-vbar-policy: always;
 }
+
+.rendez-vous {
+  -fx-padding: 8 15 15 15;
+  -fx-background-color: linear-gradient(
+      from 0% 0% to 100% 100%,
+      #9d85d4 0%,
+      #7c68b2 100%
+    ),
+    linear-gradient(
+      from 0% 50% to 100% 50%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  -fx-background-radius: 0.4em;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.2, 2, 2);
+}
+
+.gros-texte {
+  -fx-text-fill: #a6c8ff;
+  -fx-font-size: 3em;
+  -fx-font-weight: bold;
+  -fx-font-family: "Arial";
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.1, 2, 2);
+}

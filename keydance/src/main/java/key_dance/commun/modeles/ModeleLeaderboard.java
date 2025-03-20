@@ -21,6 +21,11 @@ public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
     }
 
     public void afficherSur(VueLeaderboard vueLeaderboard) {
+        vueLeaderboard.viderListeLeaderboard();
+        for (Classement leaderboard : classementDansOrdre) {
+            vueLeaderboard.ajouterLeaderboard(leaderboard);
+        }
+
         vueLeaderboard.afficherClassementEnTexte(this.toString());
     }
 
@@ -40,19 +45,18 @@ public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
         return builder.toString();
     }
 
-    public void ajouterClassement(Joueur premierJoueur){
+    public void ajouterClassement(Joueur premierJoueur) {
         String idClassement = genererIdClassement();
 
         Classement classement = new Classement(idClassement, premierJoueur);
         classementDansOrdre.add(classement);
     }
 
-    private String genererIdClassement(){
+    private String genererIdClassement() {
         String idClassement = String.valueOf(prochainIdClassement);
         prochainIdClassement++;
 
         return idClassement;
     }
-    
 
 }

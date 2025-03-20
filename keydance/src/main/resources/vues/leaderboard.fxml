@@ -46,8 +46,10 @@
         <HBox styleClass="conteneur">
             <Pane styleClass="grand-espace-horizontal"/>
 
-            <ScrollPane fitToWidth="true" styleClass="defilement">
-                <Label fx:id="labelClassement" styleClass="label-classement"/>
+            <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true" styleClass="defilement">
+                <!-- <Label fx:id="labelClassement" styleClass="label-classement"/> -->
+                <VBox styleClass="conteneur" fx:id="conteneurLeaderboard" id="conteneur-leaderboard">
+                </VBox>
             </ScrollPane>
 
             <Pane styleClass="grand-espace-horizontal"/>

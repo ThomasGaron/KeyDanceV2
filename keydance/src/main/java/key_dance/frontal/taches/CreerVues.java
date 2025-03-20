@@ -4,6 +4,7 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.frontend.ViewLoader;
+import key_dance.frontal.fragments.FragmentLeaderboard;
 import key_dance.frontal.vues.VueLeaderboard;
 import key_dance.frontal.vues.VueMenu;
 import key_dance.frontal.vues.VueRacine;
@@ -33,21 +34,25 @@ public class CreerVues {
 
     private static void creerVueLeaderboard(FrontendTasks subTasks) {
         subTasks.task(create(VueLeaderboard.class))
-            .waitsFor(viewLoader(VueLeaderboard.class))
-            .executesAndReturnsValue(inputs ->{
-                ViewLoader<VueLeaderboard> viewLoader = inputs.get(viewLoader(VueLeaderboard.class));
-                VueLeaderboard vueLeaderboard = viewLoader.createView();
-                return vueLeaderboard;
-            });
+                .waitsFor(viewLoader(VueLeaderboard.class))
+                .waitsFor(viewLoader(FragmentLeaderboard.class))
+                .executesAndReturnsValue(inputs -> {
+                    ViewLoader<VueLeaderboard> viewLoader = inputs.get(viewLoader(VueLeaderboard.class));
+                    ViewLoader<FragmentLeaderboard> viewLoaderLeaderboard = inputs
+                            .get(viewLoader(FragmentLeaderboard.class));
+                    VueLeaderboard vueLeaderboard = viewLoader.createView();
+                    vueLeaderboard.setViewLoaderLeaderboard(viewLoaderLeaderboard);
+                    return vueLeaderboard;
+                });
     }
 
-    private static void creerVueMenu(FrontendTasks subTasks){
+    private static void creerVueMenu(FrontendTasks subTasks) {
         subTasks.task(create(VueMenu.class))
-            .waitsFor(viewLoader(VueMenu.class))
-            .executesAndReturnsValue(inputs -> {
-                ViewLoader<VueMenu> viewLoader = inputs.get(viewLoader(VueMenu.class));
-                VueMenu vueMenu = viewLoader.createView();
-                return vueMenu;
-            });
+                .waitsFor(viewLoader(VueMenu.class))
+                .executesAndReturnsValue(inputs -> {
+                    ViewLoader<VueMenu> viewLoader = inputs.get(viewLoader(VueMenu.class));
+                    VueMenu vueMenu = viewLoader.createView();
+                    return vueMenu;
+                });
     }
 }

@@ -26,7 +26,7 @@ public class AfficherLeaderboard {
                     VueLeaderboard VueLeaderboard = inputs.get(created(VueLeaderboard.class));
                     Modified<ModeleLeaderboard> leaderboard = inputs.get(modified(ModeleLeaderboard.class));
 
-                    ModeleLeaderboard ancienLeanderboard = leaderboard.previousValue();
+                    ModeleLeaderboard ancienLeaderboard = leaderboard.previousValue();
                     ModeleLeaderboard leaderboardCourant = leaderboard.currentValue();
 
                     leaderboardCourant.afficherSur(VueLeaderboard);
