@@ -12,14 +12,14 @@
         alignment="CENTER"
         spacing="20">
 
-        <Pane styleClass="petit-espace-vertical"/>
+        <Pane VBox.vgrow="ALWAYS" styleClass="petit-espace-vertical"/>
 
             <Text text="%leaderboard"
             styleClass="gros-texte"
             id="texte-leaderboard">
             </Text>
 
-            <Pane styleClass="petit-espace-vertical"/>
+            <Pane VBox.vgrow="ALWAYS" styleClass="petit-espace-vertical"/>
         <HBox styleClass="conteneur">
 
             <Button
@@ -41,10 +41,10 @@
             </ComboBox>
         </HBox>
 
-        <Pane styleClass="grand-espace-vertical"/>
+        <Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
 
         <HBox styleClass="conteneur">
-            <Pane styleClass="grand-espace-horizontal"/>
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
 
             <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true" styleClass="defilement">
                 <!-- <Label fx:id="labelClassement" styleClass="label-classement"/> -->
@@ -52,9 +52,10 @@
                 </VBox>
             </ScrollPane>
 
-            <Pane styleClass="grand-espace-horizontal"/>
+            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+
         </HBox>
 
-        <Pane styleClass="grand-espace-vertical"/>        
+        <Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>     
        
     </VBox>
