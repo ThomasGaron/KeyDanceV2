@@ -5,6 +5,8 @@
     <?import javafx.scene.image.*?>
     <?import javafx.scene.text.*?>
 
+    <?import key_dance.frontal.controles.CanvasMenu?>
+
     <VBox xmlns:fx="http://javafx.com/fxml"
         fx:controller="key_dance.frontal.vues.VueMenu"
         styleClass="conteneur"
@@ -15,11 +17,12 @@
         <HBox VBox.vgrow="ALWAYS" styleClass="conteneur">
 
             <Pane styleClass="petit-espace-horizontal"/>
-            <ImageView>
-                <image>
-                    <Image url="@/images/keydance1.jpg"/>
-                </image>
-            </ImageView>
+            
+            <CanvasMenu
+                HBox.hgrow="ALWAYS"
+                fx:id="canvasMenu"
+                id="canvas-menu">
+            </CanvasMenu>
 
             <Pane styleClass="petit-espace-horizontal"/>
         </HBox>
