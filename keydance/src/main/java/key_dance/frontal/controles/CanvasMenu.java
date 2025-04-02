@@ -10,4 +10,10 @@ public class CanvasMenu extends ResizableWorld2dCanvasFx {
         setInitialWorldSize(MondeKeydance2d.LARGEUR_MONDE, MondeKeydance2d.HAUTEUR_MONDE);
     }
 
+    public void afficherFps(String fps) {
+        drawOnCanvas(gc -> {
+            gc.fillText(fps, 0, 12);
+        });
+    }
+
 }

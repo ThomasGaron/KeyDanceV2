@@ -6,10 +6,12 @@ import ca.ntro.app.frontend.FrontendFx;
 import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.session.SessionRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import key_dance.frontal.donnees.DonneesVueMenu;
 import key_dance.frontal.evenements.EvtAfficherLeaderboard;
 import key_dance.frontal.evenements.EvtAfficherMenu;
 import key_dance.frontal.fragments.FragmentLeaderboard;
 import key_dance.frontal.taches.AfficherLeaderboard;
+import key_dance.frontal.taches.AfficherMenu;
 import key_dance.frontal.taches.CreerVues;
 import key_dance.frontal.taches.Navigation;
 import key_dance.frontal.taches.PremierAffichage;
@@ -40,6 +42,8 @@ public class FrontalKeyDance implements FrontendFx {
 
         registrar.registerFragment(FragmentLeaderboard.class, "/fragments/leaderboard.fxml");
 
+        registrar.registerViewData(DonneesVueMenu.class);
+
     }
 
     @Override
@@ -55,6 +59,8 @@ public class FrontalKeyDance implements FrontendFx {
         Navigation.creerTaches(tasks);
 
         AfficherLeaderboard.creerTaches(tasks);
+
+        AfficherMenu.creerTaches(tasks);
 
     }
 
