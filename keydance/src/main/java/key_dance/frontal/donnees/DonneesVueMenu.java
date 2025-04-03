@@ -43,4 +43,8 @@ public class DonneesVueMenu implements ViewData {
         fpsCourant = String.valueOf(Math.round(fps));
     }
 
+    public void reagirTempsQuiPasse(double elapsedTime) {
+        mondeKeydance2d.onTimePasses(elapsedTime);
+    }
+
 }

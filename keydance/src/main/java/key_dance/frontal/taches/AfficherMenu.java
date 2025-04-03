@@ -38,6 +38,8 @@ public class AfficherMenu {
                     VueMenu vueMenu = inputs.get(created(VueMenu.class));
                     Tick tick = inputs.get(clock().nextTick());
 
+                    donneesVueMenu.reagirTempsQuiPasse(tick.elapsedTime());
+
                     donneesVueMenu.afficherSur(vueMenu);
                 });
     }
