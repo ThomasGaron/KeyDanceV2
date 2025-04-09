@@ -1,23 +1,22 @@
 package key_dance;
 
-import ca.ntro.app.NtroAppFx;
+import ca.ntro.app.NtroServerFx;
 import ca.ntro.app.backend.BackendRegistrar;
-import ca.ntro.app.frontend.FrontendRegistrarFx;
+import ca.ntro.app.common.ServerRegistrar;
 import ca.ntro.app.messages.MessageRegistrar;
 import ca.ntro.app.models.ModelRegistrar;
 import key_dance.commun.Declarations;
 import key_dance.dorsal.DorsalKeydance;
-import key_dance.frontal.FrontalKeyDance;
 
-public class AppKeyDance implements NtroAppFx {
+public class ServeurKeyDance implements NtroServerFx {
 
     public static void main(String[] args) {
-        NtroAppFx.launch(args);
+        NtroServerFx.launch(args);
     }
 
     @Override
-    public void registerFrontend(FrontendRegistrarFx registrar) {
-        registrar.registerFrontend(FrontalKeyDance.class);
+    public void registerServer(ServerRegistrar registrar) {
+        Declarations.declarerServeur(registrar);
     }
 
     @Override

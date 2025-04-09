@@ -1,5 +1,8 @@
 package key_dance.frontal.donnees;
 
+import javax.swing.Action;
+import javax.swing.text.Position;
+
 import ca.ntro.app.frontend.ViewData;
 import ca.ntro.core.NtroCore;
 import key_dance.commun.monde2d.MondeKeydance2d;
@@ -45,6 +48,11 @@ public class DonneesVueMenu implements ViewData {
 
     public void reagirTempsQuiPasse(double elapsedTime) {
         mondeKeydance2d.onTimePasses(elapsedTime);
+    }
+
+    public void appliquerActionJoueur(Position position, Action action) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'appliquerActionJoueur'");
     }
 
 }

@@ -4,6 +4,7 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.frontend.Tick;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import key_dance.commun.messages.MsgActionAutreJoueur;
 import key_dance.frontal.donnees.DonneesVueMenu;
 import key_dance.frontal.vues.VueMenu;
 
@@ -17,6 +18,7 @@ public class AfficherMenu {
                 .waitsFor("afficherVueMenu")
                 .contains(subTasks -> {
                     prochaineImageMenu(subTasks);
+                    reagirActionAutreJoueur(subTasks);
                 });
     }
 
@@ -41,6 +43,18 @@ public class AfficherMenu {
                     donneesVueMenu.reagirTempsQuiPasse(tick.elapsedTime());
 
                     donneesVueMenu.afficherSur(vueMenu);
+                });
+    }
+
+    private static void reagirActionAutreJoueur(FrontendTasks subTasks) {
+        subTasks.task("reagirActionAutreJoueur")
+                .waitsFor(created(DonneesVueMenu.class))
+                .waitsFor(message(MsgActionAutreJoueur.class))
+                .executes(inputs -> {
+                    DonneesVueMenu donneesVueMenu = inputs.get(created(DonneesVueMenu.class));
+                    MsgActionAutreJoueur msgActionAutreJoueur = inputs.get(message(MsgActionAutreJoueur.class));
+
+                    msgActionAutreJoueur.appliquerA(donneesVueMenu);
                 });
     }
 }
