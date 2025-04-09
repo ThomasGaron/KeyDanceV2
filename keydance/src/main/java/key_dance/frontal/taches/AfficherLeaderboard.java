@@ -2,9 +2,13 @@ package key_dance.frontal.taches;
 
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
+import ca.ntro.app.Ntro;
 import ca.ntro.app.modified.Modified;
+import ca.ntro.app.session.Session;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import key_dance.commun.modeles.ModeleLeaderboard;
+import key_dance.frontal.SessionKeydance;
+import key_dance.frontal.evenements.EvtChangerRegion;
 import key_dance.frontal.vues.VueLeaderboard;
 
 public class AfficherLeaderboard {
@@ -14,7 +18,19 @@ public class AfficherLeaderboard {
                 .waitsFor("afficherVueLeaderboard")
                 .contains(subTasks -> {
                     afficherLeaderboard(subTasks);
+                    changerRegion(subTasks);
 
+                });
+    }
+
+    private static void changerRegion(FrontendTasks subTasks) {
+        subTasks.task("changerRegion")
+                .waitsFor(event(EvtChangerRegion.class))
+                .executes(inputs -> {
+                    SessionKeydance session = Ntro.session();
+                    EvtChangerRegion evtChangerRegion = inputs.get(event(EvtChangerRegion.class));
+
+                    evtChangerRegion.appliquerA(session);
                 });
     }
 
@@ -23,6 +39,7 @@ public class AfficherLeaderboard {
                 .waitsFor(created(VueLeaderboard.class))
                 .waitsFor(modified(ModeleLeaderboard.class))
                 .executes(inputs -> {
+                    SessionKeydance session = Ntro.session();
                     VueLeaderboard VueLeaderboard = inputs.get(created(VueLeaderboard.class));
                     Modified<ModeleLeaderboard> leaderboard = inputs.get(modified(ModeleLeaderboard.class));
 
@@ -30,6 +47,8 @@ public class AfficherLeaderboard {
                     ModeleLeaderboard leaderboardCourant = leaderboard.currentValue();
 
                     leaderboardCourant.afficherSur(VueLeaderboard);
+
+                    session.afficherRegionCourante(VueLeaderboard);
                 });
     }
 }

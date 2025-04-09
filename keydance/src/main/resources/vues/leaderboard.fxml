@@ -36,8 +36,7 @@
             id="bouton-simuler">
             </Button>
 
-            <ComboBox fx:id="comboBox_region"
-                styleClass="combo-box">
+            <ComboBox fx:id="comboRegion">
             </ComboBox>
         </HBox>
 

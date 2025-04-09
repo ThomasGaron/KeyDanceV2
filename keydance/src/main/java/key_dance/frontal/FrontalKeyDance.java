@@ -9,6 +9,7 @@ import ca.ntro.app.tasks.frontend.FrontendTasks;
 import key_dance.frontal.donnees.DonneesVueMenu;
 import key_dance.frontal.evenements.EvtAfficherLeaderboard;
 import key_dance.frontal.evenements.EvtAfficherMenu;
+import key_dance.frontal.evenements.EvtChangerRegion;
 import key_dance.frontal.fragments.FragmentLeaderboard;
 import key_dance.frontal.taches.AfficherLeaderboard;
 import key_dance.frontal.taches.AfficherMenu;
@@ -25,6 +26,8 @@ public class FrontalKeyDance implements FrontendFx {
     public void registerEvents(EventRegistrar registrar) {
         registrar.registerEvent(EvtAfficherLeaderboard.class);
         registrar.registerEvent(EvtAfficherMenu.class);
+
+        registrar.registerEvent(EvtChangerRegion.class);
     }
 
     @Override

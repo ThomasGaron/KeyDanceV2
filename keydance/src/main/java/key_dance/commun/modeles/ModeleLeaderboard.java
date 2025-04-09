@@ -6,6 +6,7 @@ import java.util.List;
 import ca.ntro.app.models.Model;
 import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
+import key_dance.commun.enums.Region;
 import key_dance.commun.valeurs.Classement;
 import key_dance.commun.valeurs.Joueur;
 import key_dance.frontal.vues.VueLeaderboard;
@@ -16,8 +17,14 @@ public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
     private long prochainIdClassement = 1;
     private List<Classement> classementDansOrdre = new ArrayList<>();
 
+    private Region region = null;
+
     public ModeleLeaderboard() {
 
+    }
+
+    public void initialiserRegion(Region region) {
+        this.region = region;
     }
 
     public void afficherSur(VueLeaderboard vueLeaderboard) {
@@ -55,6 +62,10 @@ public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
     private String genererIdClassement() {
         String idClassement = String.valueOf(prochainIdClassement);
         prochainIdClassement++;
+
+        if (region != null) {
+            idClassement = region.name() + "*" + idClassement;
+        }
 
         return idClassement;
     }
