@@ -34,6 +34,7 @@ public class Classement implements ModelValue {
 
     public void afficherSur(FragmentLeaderboard fragmentLeaderboard) {
         fragmentLeaderboard.afficherNomJoueur(premierJoueur.usernameClassement());
+        fragmentLeaderboard.afficherScoreJoueur(premierJoueur.scoreClassement());
     }
 
 }

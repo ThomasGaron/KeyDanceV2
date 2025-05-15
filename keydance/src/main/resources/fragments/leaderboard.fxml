@@ -9,10 +9,17 @@
         styleClass="conteneur,vue-leaderboard">
         <HBox>
             <Pane styleClass="grand-espace-horizontal"/>
-            <HBox styleClass="conteneur,leaderboard" fx:id="horizontalOuVertical">
+            <!-- Pousser score a droite (HBox.hgrow = "ALWAYS")-->
+            <HBox styleClass="conteneur,leaderboard" fx:id="horizontalOuVertical" HBox.hgrow="ALWAYS">
                 <Pane minHeight="20" minWidth="20"/>
                 <Label
                     fx:id="labelNomJoueur"
+                    styleClass="gros-texte">
+                </Label>
+                <!-- Pousser score a droite -->
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label
+                    fx:id="labelScoreJoueur"
                     styleClass="gros-texte">
                 </Label>
                 <Pane minHeight="20" minWidth="20"/>

@@ -7,7 +7,7 @@ public class Joueur implements ModelValue {
     private String id;
     private String username;
     private String region;
-    // private int score;
+    private int score = 0;
 
     public void setId(String id){
         this.id = id;
@@ -28,4 +28,13 @@ public class Joueur implements ModelValue {
     public String usernameClassement() {
         return username;
     }
+
+    public int scoreClassement(){
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
 }

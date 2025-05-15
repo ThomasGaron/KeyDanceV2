@@ -18,6 +18,7 @@ public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
     private List<Classement> classementDansOrdre = new ArrayList<>();
 
     private Region region = null;
+    
 
     public ModeleLeaderboard() {
 
