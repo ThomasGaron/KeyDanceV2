@@ -37,4 +37,11 @@ public class Classement implements ModelValue {
         fragmentLeaderboard.afficherScoreJoueur(premierJoueur.scoreClassement());
     }
 
+    public boolean lIdJoueur(String idJoueur) {
+        return premierJoueur != null && premierJoueur.getId().equals(idJoueur);
+    }    
+
+    public String idDuJoueur() {
+        return premierJoueur != null ? premierJoueur.getId() : null;
+    }
 }

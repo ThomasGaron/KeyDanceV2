@@ -2,9 +2,11 @@ package key_dance.dorsal.taches;
 
 import static ca.ntro.app.tasks.backend.BackendTasks.*;
 
+import ca.ntro.app.tasks.TaskInputs;
 import ca.ntro.app.tasks.backend.BackendTasks;
 import key_dance.commun.messages.MsgAjouterClassement;
 import key_dance.commun.messages.MsgInitialiserLeaderboard;
+import key_dance.commun.messages.MsgSupprimerJoueur;
 import key_dance.commun.modeles.ModeleLeaderboard;
 
 public class ModifierLeaderboard {
@@ -15,6 +17,7 @@ public class ModifierLeaderboard {
                 .contains(subTasks -> {
                     initialiser(subTasks);
                     ajouterClassement(subTasks);
+                    supprimerClassement(subTasks);
                 });
     }
 
@@ -28,6 +31,18 @@ public class ModifierLeaderboard {
 
                     msgAjouterClassement.ajouterA(leaderboard);
                 });
+    }
+
+    private static void supprimerClassement(BackendTasks subTasks) {
+        subTasks.task("supprimerClassement")
+            .waitsFor(model(ModeleLeaderboard.class))
+            .waitsFor(message(MsgSupprimerJoueur.class))
+            .executes(inputs -> {
+                MsgSupprimerJoueur msgSupprimerJoueur = inputs.get(message(MsgSupprimerJoueur.class));
+                ModeleLeaderboard leaderboard = inputs.get(model(ModeleLeaderboard.class));
+    
+                msgSupprimerJoueur.supprimerDe(leaderboard);
+            });
     }
 
     private static void initialiser(BackendTasks subTasks) {

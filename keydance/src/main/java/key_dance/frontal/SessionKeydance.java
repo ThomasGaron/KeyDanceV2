@@ -4,6 +4,7 @@ import ca.ntro.app.Ntro;
 import ca.ntro.app.session.Session;
 import key_dance.commun.enums.Region;
 import key_dance.commun.messages.MsgAjouterClassement;
+import key_dance.commun.messages.MsgSupprimerJoueur;
 import key_dance.commun.modeles.ModeleLeaderboard;
 import key_dance.frontal.evenements.EvtAfficherLeaderboard;
 import key_dance.frontal.evenements.EvtAfficherMenu;
@@ -47,12 +48,17 @@ public class SessionKeydance extends Session<SessionKeydance> {
 
     public void envoyerMsgAjouterClassement() {
         Ntro.newMessage(MsgAjouterClassement.class)
-                .setPremierJoueur(MaquetteJoueurs.joueurAleatoire(this.sessionId()))
+                .setPremierJoueur(MaquetteJoueurs.joueurAleatoire(Ntro.random().nextId(6)))
                 .send();
     }
 
     public SessionKeydance afficherRegionCourante(VueLeaderboard vueLeaderboard) {
         vueLeaderboard.afficherRegionCourante(regionCourante.name());
         return this;
+    }
+
+    public void envoyerMsgSupprimerJoueur(String idJoueur) {
+        Ntro.newMessage(MsgSupprimerJoueur.class)
+        .setIdJoueur(idJoueur).send();
     }
 }

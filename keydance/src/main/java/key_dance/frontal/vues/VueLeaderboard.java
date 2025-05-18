@@ -18,6 +18,7 @@ import key_dance.commun.valeurs.Classement;
 import key_dance.frontal.SessionKeydance;
 import key_dance.frontal.evenements.EvtAfficherMenu;
 import key_dance.frontal.evenements.EvtChangerRegion;
+import key_dance.frontal.evenements.EvtSupprimerJoueur;
 import key_dance.frontal.fragments.FragmentLeaderboard;
 
 public class VueLeaderboard extends ViewFx {
@@ -42,6 +43,8 @@ public class VueLeaderboard extends ViewFx {
     private VBox conteneurLeaderboard;
     @FXML
     private ComboBox<String> comboRegion;
+    @FXML
+    private Button boutonSupprimer;
 
     private Map<Region, String> nomRegionParRegion = new HashMap<>();
     private Map<String, Region> regionParNomRegion = new HashMap<>();
@@ -53,12 +56,38 @@ public class VueLeaderboard extends ViewFx {
         // Ntro.assertNotNull(labelClassement);
         Ntro.assertNotNull(conteneurLeaderboard);
         Ntro.assertNotNull(comboRegion);
+        Ntro.assertNotNull(boutonSupprimer);
 
         installerEvtAfficherMenu();
         initialiserBoutonSimuler();
         initialiserRegions();
         initialiserComboRegion();
+        initialiserBoutonSupprimer();
     }
+
+    private void initialiserBoutonSupprimer() {
+        boutonSupprimer.setOnAction(evtFx -> supprimerJoueursSelectionnes());
+    }
+
+    private void supprimerJoueursSelectionnes() {
+        conteneurLeaderboard.getChildren().forEach(node -> {
+            Object userData = node.getUserData();
+    
+            if (userData instanceof FragmentLeaderboard) {
+                FragmentLeaderboard fragment = (FragmentLeaderboard) userData;
+    
+                if (fragment.estSelectionne()) {
+                    String idJoueur = fragment.getIdJoueur();
+    
+                    Ntro.newEvent(EvtSupprimerJoueur.class)
+                        .setIdJoueur(idJoueur)
+                        .trigger();
+                }
+            }
+        });
+    }
+    
+    
 
     private void initialiserComboRegion() {
         comboRegion.setFocusTraversable(false);
@@ -112,7 +141,12 @@ public class VueLeaderboard extends ViewFx {
         FragmentLeaderboard fragment = leaderboard.creerFragment(ViewLoaderLeaderboard);
         leaderboard.afficherSur(fragment);
 
+        fragment.setIdJoueur(leaderboard.idDuJoueur());
+
         conteneurLeaderboard.getChildren().add(fragment.rootNode());
+
+        fragment.rootNode().setUserData(fragment);
+
     }
 
     public void viderListeLeaderboard() {
@@ -131,5 +165,6 @@ public class VueLeaderboard extends ViewFx {
             comboRegion.getSelectionModel().select(nomRegionParRegion.get(region));
         }
     }
+
 
 }

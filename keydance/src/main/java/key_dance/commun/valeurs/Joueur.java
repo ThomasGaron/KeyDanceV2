@@ -37,4 +37,8 @@ public class Joueur implements ModelValue {
         this.score = score;
     }
 
+    public String getId() {
+        return id;
+    }
+
 }

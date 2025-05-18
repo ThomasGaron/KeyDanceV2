@@ -36,6 +36,13 @@
             id="bouton-simuler">
             </Button>
 
+            <Button
+            fx:id="boutonSupprimer"
+            text="%supprimer"
+            styleClass="gros-bouton"
+            id="bouton-supprimer">
+            </Button>
+
             <ComboBox fx:id="comboRegion">
             </ComboBox>
         </HBox>

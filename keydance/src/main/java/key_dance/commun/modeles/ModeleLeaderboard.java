@@ -60,6 +60,14 @@ public class ModeleLeaderboard implements Model, WatchJson, WriteObjectGraph {
         classementDansOrdre.add(classement);
     }
 
+    public void supprimerClassement(String idJoueur) {
+        classementDansOrdre.removeIf(classement ->
+            classement.lIdJoueur(idJoueur)
+        );
+        
+    }
+
+
     private String genererIdClassement() {
         String idClassement = String.valueOf(prochainIdClassement);
         prochainIdClassement++;

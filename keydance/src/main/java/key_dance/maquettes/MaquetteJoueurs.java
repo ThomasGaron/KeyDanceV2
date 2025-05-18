@@ -45,7 +45,7 @@ public class MaquetteJoueurs {
         usager.setId(id);
         usager.setUsername(usernameAleatoire());
         usager.setRegion(regionAleatoire());
-        usager.setScore(scoreAleatoire());
+        usager.setScore(score);
 
         return usager;
     }

@@ -12,6 +12,8 @@
             <!-- Pousser score a droite (HBox.hgrow = "ALWAYS")-->
             <HBox styleClass="conteneur,leaderboard" fx:id="horizontalOuVertical" HBox.hgrow="ALWAYS">
                 <Pane minHeight="20" minWidth="20"/>
+                <CheckBox fx:id="checkboxSelection">
+                </CheckBox>
                 <Label
                     fx:id="labelNomJoueur"
                     styleClass="gros-texte">
