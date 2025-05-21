@@ -1,67 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-    <?import javafx.scene.layout.*?>
-    <?import javafx.scene.control.*?>
-    <?import javafx.scene.image.*?>
-    <?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 
-    <VBox xmlns:fx="http://javafx.com/fxml"
-        fx:controller="key_dance.frontal.vues.VueLeaderboard"
-        styleClass="conteneur"
-        id="vue-leaderboard"
-        alignment="CENTER"
-        spacing="20">
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="key_dance.frontal.vues.VueLeaderboard"
+      styleClass="conteneur"
+      id="vue-leaderboard"
+      alignment="TOP_CENTER"
+      spacing="10">
 
-        <Pane VBox.vgrow="ALWAYS" styleClass="petit-espace-vertical"/>
+    <!-- Marge haute fixe -->
+    <Pane minHeight="40" prefHeight="40" maxHeight="40"/>
 
-            <Text text="%leaderboard"
-            styleClass="gros-texte"
-            id="texte-leaderboard">
-            </Text>
+    <!-- Ligne fixe : bouton menu -->
+    <HBox spacing="10" alignment="TOP_LEFT">
+        <Region minWidth="20"/>
+        <Button fx:id="boutonAllerAuMenu"
+                text="%retournerMenu"
+                styleClass="gros-bouton"
+                id="bouton-menu"/>
+    </HBox>
 
-            <Pane VBox.vgrow="ALWAYS" styleClass="petit-espace-vertical"/>
-        <HBox styleClass="conteneur">
+    <!-- Titre -->
+    <Text text="%leaderboard"
+          styleClass="gros-texte"
+          id="texte-leaderboard" />
 
-            <Button
-            fx:id="boutonAllerAuMenu"
-            text="%retournerMenu"
-            styleClass="gros-bouton"
-            id="bouton-menu">
-            </Button>
+    <!-- ComboBox Région juste sous le titre -->
+    <HBox alignment="CENTER">
+        <ComboBox fx:id="comboRegion"
+                  promptText="Région"
+                  styleClass="combo-box"/>
+    </HBox>
 
-            <Button
-            fx:id="boutonSimuler"
-            text="%simuler"
-            styleClass="gros-bouton"
-            id="bouton-simuler">
-            </Button>
+    <HBox spacing="10" alignment="CENTER">
+    <TextField fx:id="champUsername"
+               promptText="%username"
+               styleClass="champ-texte"/>
+    <TextField fx:id="champScore"
+               promptText="Score"
+               styleClass="champ-texte"/>
+    <Button fx:id="boutonAjouter"
+            text="%ajouter"
+            styleClass="gros-bouton"/>
+</HBox>
 
-            <Button
-            fx:id="boutonSupprimer"
-            text="%supprimer"
-            styleClass="gros-bouton"
-            id="bouton-supprimer">
-            </Button>
+    <!-- Leaderboard scrollable -->
+    <HBox styleClass="conteneur">
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+        
+        <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true" styleClass="defilement">
+            <VBox styleClass="conteneur"
+                  fx:id="conteneurLeaderboard"
+                  id="conteneur-leaderboard"/>
+        </ScrollPane>
+        <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
+    </HBox>
 
-            <ComboBox fx:id="comboRegion">
-            </ComboBox>
-        </HBox>
+    <!-- Boutons Simuler et Supprimer en bas à droite -->
+    <HBox spacing="20" alignment="CENTER_RIGHT">
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="boutonSimuler"
+                text="%simuler"
+                styleClass="gros-bouton"
+                id="bouton-simuler"/>
+        <Button fx:id="boutonSupprimer"
+                text="%supprimer"
+                styleClass="gros-bouton"
+                id="bouton-supprimer"/>
+        <Region minWidth="20"/>
+    </HBox>
 
-        <Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>
+    <!-- Espace bas -->
+    <Pane minHeight="30" maxHeight="30" prefHeight="30"/>
 
-        <HBox styleClass="conteneur">
-            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-
-            <ScrollPane HBox.hgrow="ALWAYS" fitToWidth="true" styleClass="defilement">
-                <!-- <Label fx:id="labelClassement" styleClass="label-classement"/> -->
-                <VBox styleClass="conteneur" fx:id="conteneurLeaderboard" id="conteneur-leaderboard">
-                </VBox>
-            </ScrollPane>
-
-            <Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-
-        </HBox>
-
-        <Pane VBox.vgrow="ALWAYS" styleClass="grand-espace-vertical"/>     
-       
-    </VBox>
+</VBox>

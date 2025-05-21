@@ -40,5 +40,16 @@ public class Joueur implements ModelValue {
     public String getId() {
         return id;
     }
+    
+    public String getUsername() {
+        return username;
+    }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public int getScore() {
+        return score;
+    }
 }

@@ -11,12 +11,16 @@ import ca.ntro.app.frontend.ViewLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 // import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import key_dance.commun.enums.Region;
+import key_dance.commun.messages.MsgAjouterClassement;
 import key_dance.commun.valeurs.Classement;
+import key_dance.commun.valeurs.Joueur;
 import key_dance.frontal.SessionKeydance;
 import key_dance.frontal.evenements.EvtAfficherMenu;
+import key_dance.frontal.evenements.EvtAjouterJoueur;
 import key_dance.frontal.evenements.EvtChangerRegion;
 import key_dance.frontal.evenements.EvtSupprimerJoueur;
 import key_dance.frontal.fragments.FragmentLeaderboard;
@@ -45,6 +49,12 @@ public class VueLeaderboard extends ViewFx {
     private ComboBox<String> comboRegion;
     @FXML
     private Button boutonSupprimer;
+    @FXML
+    private TextField champUsername;
+    @FXML
+    private TextField champScore;
+    @FXML
+    private Button boutonAjouter;
 
     private Map<Region, String> nomRegionParRegion = new HashMap<>();
     private Map<String, Region> regionParNomRegion = new HashMap<>();
@@ -63,7 +73,46 @@ public class VueLeaderboard extends ViewFx {
         initialiserRegions();
         initialiserComboRegion();
         initialiserBoutonSupprimer();
+        initialiserBoutonAjouter();
     }
+
+    private void initialiserBoutonAjouter() {
+         boutonAjouter.setOnAction(evtFx -> actionBoutonAjouter());
+    }
+
+    private void actionBoutonAjouter() {
+    String nom = champUsername.getText();
+    String scoreStr = champScore.getText();
+    String nomRegion = comboRegion.getSelectionModel().getSelectedItem();
+
+    if (nom == null || nom.isEmpty() || scoreStr == null || scoreStr.isEmpty() || nomRegion == null) {
+        return;
+    }
+
+    try {
+        int score = Integer.parseInt(scoreStr);
+        Region region = regionParNomRegion.get(nomRegion);
+
+        Joueur joueur = new Joueur();
+        joueur.setId(Ntro.random().nextId(4));
+        joueur.setUsername(nom);
+        joueur.setScore(score);
+        joueur.setRegion(region.name());
+
+        Ntro.newEvent(EvtAjouterJoueur.class)
+            .setJoueur(joueur)
+            .trigger();
+
+        champUsername.clear();
+        champScore.clear();
+
+        } catch (NumberFormatException e) {
+        // CATCH erreur
+        }
+    }
+
+
+
 
     private void initialiserBoutonSupprimer() {
         boutonSupprimer.setOnAction(evtFx -> supprimerJoueursSelectionnes());

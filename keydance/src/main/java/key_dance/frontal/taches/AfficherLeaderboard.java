@@ -8,6 +8,7 @@ import ca.ntro.app.session.Session;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import key_dance.commun.modeles.ModeleLeaderboard;
 import key_dance.frontal.SessionKeydance;
+import key_dance.frontal.evenements.EvtAjouterJoueur;
 import key_dance.frontal.evenements.EvtChangerRegion;
 import key_dance.frontal.evenements.EvtSupprimerJoueur;
 import key_dance.frontal.vues.VueLeaderboard;
@@ -21,7 +22,19 @@ public class AfficherLeaderboard {
                     afficherLeaderboard(subTasks);
                     changerRegion(subTasks);
                     supprimerJoueur(subTasks);
+                    ajouterJoueur(subTasks);
                 });
+    }
+
+    private static void ajouterJoueur(FrontendTasks subTasks) {
+        subTasks.task("ajouterJoueur")
+            .waitsFor(event(EvtAjouterJoueur.class))
+            .executes(inputs -> {
+                SessionKeydance session = Ntro.session();
+                EvtAjouterJoueur evtAjouterJoueur = inputs.get(event(EvtAjouterJoueur.class));
+                
+                evtAjouterJoueur.appliquerA(session);
+            });
     }
 
     private static void changerRegion(FrontendTasks subTasks) {

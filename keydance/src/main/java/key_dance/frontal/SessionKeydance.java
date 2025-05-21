@@ -4,8 +4,10 @@ import ca.ntro.app.Ntro;
 import ca.ntro.app.session.Session;
 import key_dance.commun.enums.Region;
 import key_dance.commun.messages.MsgAjouterClassement;
+import key_dance.commun.messages.MsgAjouterJoueur;
 import key_dance.commun.messages.MsgSupprimerJoueur;
 import key_dance.commun.modeles.ModeleLeaderboard;
+import key_dance.commun.valeurs.Joueur;
 import key_dance.frontal.evenements.EvtAfficherLeaderboard;
 import key_dance.frontal.evenements.EvtAfficherMenu;
 import key_dance.frontal.vues.VueLeaderboard;
@@ -61,4 +63,10 @@ public class SessionKeydance extends Session<SessionKeydance> {
         Ntro.newMessage(MsgSupprimerJoueur.class)
         .setIdJoueur(idJoueur).send();
     }
+
+    public void envoyerMsgAjouterClassement(Joueur joueur) {
+    Ntro.newMessage(MsgAjouterClassement.class)
+        .setPremierJoueur(joueur)
+        .send();
+}
 }
